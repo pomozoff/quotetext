@@ -122,7 +122,7 @@ static void attach_to_gtkconv(PidginConversation *gtkconv, gpointer null){
 	gtk_widget_set_name(quote_button, "convquote_button");
 	gtk_button_set_relief(GTK_BUTTON(quote_button), GTK_RELIEF_NONE);
 	g_object_set_data(G_OBJECT(toolbar), PLUGIN_ID "-quote", quote_button);
-	g_signal_connect_swapped(G_OBJECT(quote_button), "button-release-event", G_CALLBACK(gtk_widget_activate), quote_button);
+	g_signal_connect_swapped(G_OBJECT(quote_button), "button-press-event", G_CALLBACK(gtk_widget_activate), quote_button);
 	g_signal_connect(G_OBJECT(quote_button), "activate", G_CALLBACK(quote_button_press), gtkconv);
 	
 	bbox = gtk_hbox_new(FALSE, 3);
